@@ -1,0 +1,34 @@
+{% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
+
+{% block container_content %}
+    <p class="lead">{% trans %}Repositories{% endtrans %}</p>
+
+    <ul class="nav nav-pills">
+        <li class="{% if app.request.attributes.get('filter') == 'all' %}active{% endif %}">
+            <a href="{{ path('jmoati_gitolite_front_repository_index', {filter: 'all'}) }}">All</a>
+        </li>
+        <li class="{% if app.request.attributes.get('filter') == 'owner' %}active{% endif %}">
+            <a href="{{ path('jmoati_gitolite_front_repository_index', {filter: 'owner'}) }}">Owner</a>
+        </li>
+        <li class="{% if app.request.attributes.get('filter') == 'developer' %}active{% endif %}">
+            <a href="{{ path('jmoati_gitolite_front_repository_index', {filter: 'developer'}) }}">Developer</a>
+        </li>
+        <li class="{% if app.request.attributes.get('filter') == 'viewer' %}active{% endif %}">
+            <a href="{{ path('jmoati_gitolite_front_repository_index', {filter: 'viewer'}) }}">Viewer</a>
+        </li>
+    </ul>
+    <div class="list-group" style="margin-top: 10px;">
+        {% for repository in pagination %}
+            <a class="list-group-item"
+               href="{{ path('jmoati_gitolite_front_repository_view', {repository: repository.id}) }}">
+                <span class="lead">{{ repository.name }}</span>
+
+                <p>{{ repository.description }}</p>
+            </a>
+            {#{ repository.role(app.user) }#} {#{ repository.publicStr }#}
+        {% endfor %}
+    </div>
+
+    {{ knp_pagination_render(pagination) }}
+
+{% endblock %}

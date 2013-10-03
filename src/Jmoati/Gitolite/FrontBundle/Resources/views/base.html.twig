@@ -1,0 +1,31 @@
+{% extends 'JmoatiTwitterBootstrapBundle::base.html.twig' %}
+
+{% block title %}Gitolite Manager{% endblock %}
+{% block brand_title %}Gitolite Manager{% endblock %}
+{% block brand_url %}{{ path('jmoati_gitolite_front_homepage') }}{% endblock %}
+
+{% block menu_item %}
+    {% if app.user %}
+        <li><a href="{{ path('jmoati_gitolite_front_repository_new') }}">{% trans %}Create
+                Repository{% endtrans %}</a></li>
+        <li><a href="{{ path('jmoati_gitolite_front_key_new') }}">{% trans %}Create Key{% endtrans %}</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block right_menu_item %}
+    {% if app.user %}
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ app.user }} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('jmoati_gitolite_front_repository_index') }}">{% trans %}
+                        Repositories{% endtrans %}</a></li>
+                <li><a href="{{ path('jmoati_gitolite_front_key_index') }}">{% trans %}Keys{% endtrans %}</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+            </ul>
+        </li>
+    {% else %}
+        <li><a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a></li>
+        <li><a href="{{ path('fos_user_security_login') }}">{% trans %}Login{% endtrans %}</a></li>
+    {% endif %}
+{% endblock %}

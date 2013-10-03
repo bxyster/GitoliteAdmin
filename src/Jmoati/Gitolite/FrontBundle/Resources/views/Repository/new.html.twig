@@ -1,0 +1,20 @@
+{% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
+{% form_theme form 'JmoatiTwitterBootstrapBundle::form_theme.html.twig' %}
+
+{% block container_content %}
+    <form action="{{ path('jmoati_gitolite_front_repository_new') }}" method="post" {{ form_enctype(form) }}>
+        <legend>{% trans %}repository.create.title{% endtrans %}</legend>
+
+        <div class="row">
+            <div class="col-md-4">
+                {{ form_rest(form) }}
+            </div>
+        </div>
+
+        <p class="well" style="margin-top: 10px;">
+            <a class="btn btn-default" href="{{ path('jmoati_gitolite_front_repository_index') }}">{% trans %}
+                action.cancel{% endtrans %}</a>
+            <button type="submit" class="btn btn-success">{% trans %}action.create{% endtrans %}</button>
+        </p>
+    </form>
+{% endblock %}

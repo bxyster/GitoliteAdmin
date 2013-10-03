@@ -1,0 +1,8 @@
+jmoati_gitolite_core_fos_user:
+    resource: "@JmoatiGitoliteCoreBundle/Resources/config/routing/fos_user.yml"
+    prefix:   /
+    
+jmoati_gitolite_front:
+    resource: "@JmoatiGitoliteFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,21 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     gitolite
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            fr_FR
+    secret:            hdy7YZEHUDUE3Fugegfe7276345
+
+    gitolite_user:     www-data
+    web_user:          www-data
+    repositories_path: %kernel.root_dir%/repositories
+
+    gitolite_resque_queue: gitolite_resque_queue
