@@ -1,0 +1,15 @@
+{% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
+{% form_theme form 'JmoatiTwitterBootstrapBundle::form_theme.html.twig' %}
+
+{% block container_content %}
+    <form action="" method="post" {{ form_enctype(form) }}>
+        <legend>{% trans %}repository.create_key.title{% endtrans %}</legend>
+
+        <div class="well">
+            {{ form_rest(form) }}
+        </div>
+
+        <a href="">{% trans %}action.cancel{% endtrans %}</a>
+        <button type="submit" class="btn btn-success">{% trans %}action.create{% endtrans %}</button>
+    </form>
+{% endblock %}

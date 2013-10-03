@@ -1,0 +1,20 @@
+{% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
+
+{% block container_content %}
+    <p class="lead">{% trans %}Keys{% endtrans %}</p>
+
+    {% for key in pagination %}
+        <div class="clearfix">
+            <p>{{ key.name }}</p>
+            <pre>{{ key.value }}</pre>
+
+            <div class="pull-right">
+                <a href="{{ path('jmoati_gitolite_front_key_delete', { 'key': key.id }) }}"
+                   class="btn btn-danger">{% trans %}action.revoke{% endtrans %}</a>
+            </div>
+        </div>
+    {% endfor %}
+
+    {{ knp_pagination_render(pagination) }}
+
+{% endblock %}

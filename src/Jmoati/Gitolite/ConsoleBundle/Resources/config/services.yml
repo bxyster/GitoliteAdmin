@@ -1,0 +1,4 @@
+services:
+    jmoati_gitolite_console.config_generator:
+        class: Jmoati\Gitolite\ConsoleBundle\Service\ConfigGenerator
+        arguments: ["@doctrine", "%web_user%"]

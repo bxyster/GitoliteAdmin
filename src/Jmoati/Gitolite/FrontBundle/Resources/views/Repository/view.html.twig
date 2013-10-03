@@ -1,0 +1,74 @@
+{% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
+
+{% block container_content %}
+    <div class="col-md-3">
+        <p class=" lead text-center">{{ repository.name }}</p>
+        <hr/>
+        <ul class="list-unstyled">
+            <li class="text-right">Created on {{ repository.created|date('d/m/Y') }}</li>
+        </ul>
+        {% if repository.website %}
+            <p class="text-right"><a href="{{ repository.website }}">{{ repository.website }}</a></p>
+        {% endif %}
+
+        {% if repository.description %}
+            <hr/>
+            <p class="text-center">
+                <small>{{ repository.description|nl2br }}</small>
+            </p>
+        {% endif %}
+
+        {% if repository.owner %}
+            <p class="text-right">
+                <a href="{{ path("jmoati_gitolite_front_repository_edit", { repository: repository.id }) }}"
+                   class="btn btn-primary">Edit</a>
+            </p>
+        {% endif %}
+    </div>
+    <div class="col-md-9">
+        <ul class="nav nav-tabs">
+            <li class="text-center col-md-3">
+                <a href="#" class="">{% trans %}Commits{% endtrans %} <span class="badge">{{ repo.totalCommits }}</span></a>
+            </li>
+            <li class="text-center col-md-3">
+                <a href="#">{% trans %}Branchs{% endtrans %} <span class="badge">{{ repo.branches|length }}</span></a>
+            </li>
+            <li class="text-center col-md-3">
+                <a href="#">{% trans %}Releases{% endtrans %} <span class="badge">{{ repo.tags|length }}</span></a>
+            </li>
+            <li class="text-center col-md-3">
+                <a href="#">{% trans %}Contributors{% endtrans %} <span class="badge">#</span></a>
+            </li>
+        </ul>
+
+        <ul class="list-group" style="margin-top: 20px;">
+            {% for commit in repo.commits|slice(0, 10) %}
+
+                {#
+                shortHash
+                author.name
+                date
+                message
+                hash
+                #}
+                <li class="list-group-item">
+
+                    <span class="col-md-2 text-center">
+                        <a href="#">
+                            <img src="" style="height: 50px; width: 50px;" class="img-thumbnail"><br/>
+                            <small>{{ commit.author.name }}</small>
+                        </a>
+                    </span>
+
+                    <p class="col-md-9" style="text-align: justify">{{ commit.message }}</p>
+
+                    <p class="col-md-1 text-right">
+                        <a hef="">{{ commit.shortHash }}</a>
+                    </p>
+
+                    <p class="clearfix"></p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
