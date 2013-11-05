@@ -2107,17 +2107,17 @@
     "packages-dev": [
         {
             "name": "jmoati/generator-bundle",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "target-dir": "Jmoati/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jmoati/GeneratorBundle.git",
-                "reference": "0bd0415951279af8b0b2b816c4f05cd639ea90cb"
+                "reference": "af3e0b2081323989e557545e6f6dec78b0534c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jmoati/GeneratorBundle/zipball/0bd0415951279af8b0b2b816c4f05cd639ea90cb",
-                "reference": "0bd0415951279af8b0b2b816c4f05cd639ea90cb",
+                "url": "https://api.github.com/repos/Jmoati/GeneratorBundle/zipball/af3e0b2081323989e557545e6f6dec78b0534c66",
+                "reference": "af3e0b2081323989e557545e6f6dec78b0534c66",
                 "shasum": ""
             },
             "require": {
@@ -2131,6 +2131,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Jacques Moati",
@@ -2138,7 +2141,7 @@
                 }
             ],
             "description": "Simple source generator for Symfony2",
-            "time": "2013-10-08 06:03:06"
+            "time": "2013-11-05 17:56:21"
         }
     ],
     "aliases": [
