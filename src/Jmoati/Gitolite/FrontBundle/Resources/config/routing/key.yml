@@ -1,0 +1,11 @@
+jmoati_gitolite_front_key_index:
+    pattern:  "/keys"
+    defaults: { _controller: JmoatiGitoliteFrontBundle:Key:index }
+
+jmoati_gitolite_front_key_new:
+    pattern:  "/key/new"
+    defaults: { _controller: JmoatiGitoliteFrontBundle:Key:new }
+
+jmoati_gitolite_front_key_delete:
+    pattern:  "/key/{key}/delete"
+    defaults: { _controller: JmoatiGitoliteFrontBundle:Key:delete }

@@ -1,5 +1,6 @@
 <?php
 
+use Maxime\UserBundle\MaximeUserBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 

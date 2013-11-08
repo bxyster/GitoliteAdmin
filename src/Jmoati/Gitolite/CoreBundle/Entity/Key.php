@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Jmoati\HelperBundle\Traits\Entity;
 use Jmoati\HelperBundle\Traits\Sluggable;
 use Jmoati\HelperBundle\Traits\Timestampable;
+use Jmoati\Gitolite\CoreBundle\Entity\User;
+use Jmoati\Gitolite\CoreBundle\Entity\Repository;
 
 /**
  * @ORM\Entity(repositoryClass="Jmoati\Gitolite\CoreBundle\Repository\KeyRepository")
@@ -36,8 +38,21 @@ class Key
      */
     protected $repository;
 
+
     /**
-     * @return string
+     * @param string  $value
+     * @return Key
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    
+        return $this;
+    }
+    
+
+    /**
+     * @return string 
      */
     public function getValue()
     {
@@ -45,19 +60,19 @@ class Key
     }
 
     /**
-     * @param string $value
-     *
+     * @param User  $user
      * @return Key
      */
-    public function setValue($value)
+    public function setUser(User $user = null)
     {
-        $this->value = $value;
-
+        $this->user = $user;
+    
         return $this;
     }
+    
 
     /**
-     * @return User
+     * @return User 
      */
     public function getUser()
     {
@@ -65,34 +80,22 @@ class Key
     }
 
     /**
-     * @param User $user
-     *
-     * @return Key
-     */
-    public function setUser(User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * @return Repository
-     */
-    public function getRepository()
-    {
-        return $this->repository;
-    }
-
-    /**
-     * @param Repository $repository
-     *
+     * @param Repository  $repository
      * @return Key
      */
     public function setRepository(Repository $repository = null)
     {
         $this->repository = $repository;
-
+    
         return $this;
+    }
+    
+
+    /**
+     * @return Repository 
+     */
+    public function getRepository()
+    {
+        return $this->repository;
     }
 }

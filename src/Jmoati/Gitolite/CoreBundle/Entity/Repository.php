@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Jmoati\HelperBundle\Traits\Entity;
 use Jmoati\HelperBundle\Traits\Sluggable;
 use Jmoati\HelperBundle\Traits\Timestampable;
+use Jmoati\Gitolite\CoreBundle\Entity\Key;
+use Jmoati\Gitolite\CoreBundle\Entity\User;
 
 /**
  * @ORM\Entity(repositoryClass="Jmoati\Gitolite\CoreBundle\Repository\RepositoryRepository")
@@ -63,16 +65,27 @@ class Repository
      */
     protected $viewers;
 
+   
     public function __construct()
     {
-        $this->public     = false;
+        $this->keys = new ArrayCollection();
         $this->developers = new ArrayCollection();
-        $this->viewers    = new ArrayCollection();
-        $this->keys       = new ArrayCollection();
+        $this->viewers = new ArrayCollection();
     }
+    /**
+     * @param string  $description
+     * @return Repository
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+    
 
     /**
-     * @return string
+     * @return string 
      */
     public function getDescription()
     {
@@ -80,44 +93,39 @@ class Repository
     }
 
     /**
-     * @param string $description
-     *
-     * @return Repository
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getPublicStr()
-    {
-        return $this->isPublic() ? 'public' : 'private';
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isPublic()
-    {
-        return $this->public;
-    }
-
-    /**
-     * @param boolean $public
-     *
+     * @param boolean  $public
      * @return Repository
      */
     public function setPublic($public)
     {
         $this->public = $public;
-
+    
         return $this;
+    }
+    
+
+    /**
+     * @return boolean 
+     */
+    public function getPublic()
+    {
+        return $this->public;
     }
 
     /**
-     * @return string
+     * @param string  $website
+     * @return Repository
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+    
+        return $this;
+    }
+    
+
+    /**
+     * @return string 
      */
     public function getWebsite()
     {
@@ -125,27 +133,13 @@ class Repository
     }
 
     /**
-     * @param string $website
-     *
-     * @return Repository
-     */
-    public function setWebsite($website)
-    {
-        $this->website = $website;
-
-        return $this;
-    }
-
-    /**
      * @param Key $key
-     *
      * @return Repository
      */
     public function addKey(Key $key)
     {
         $key->setRepository($this);
         $this->keys->add($key);
-
         return $this;
     }
 
@@ -159,7 +153,7 @@ class Repository
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection 
      */
     public function getKeys()
     {
@@ -167,14 +161,32 @@ class Repository
     }
 
     /**
+     * @param User  $owner
+     * @return Repository
+     */
+    public function setOwner(User $owner = null)
+    {
+        $this->owner = $owner;
+    
+        return $this;
+    }
+    
+
+    /**
+     * @return User 
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
      * @param User $user
-     *
      * @return Repository
      */
     public function addUser(User $user)
     {
         $this->developers->add($user);
-
         return $this;
     }
 
@@ -186,69 +198,16 @@ class Repository
         $this->developers->removeElement($user);
     }
 
-    public function getRole(User $user)
-    {
-        if ($this->isOwner($user)) {
-            return 'owner';
-        } elseif ($this->isDeveloper($user)) {
-            return 'developer';
-        } elseif ($this->isViewer($user)) {
-            return 'viewer';
-        } else {
-            return 'public';
-        }
-    }
-
     /**
-     * @param User $user
-     *
-     * @return bool
-     */
-    public function isOwner(User $user)
-    {
-        return $this->getOwner() == $user;
-    }
-
-    /**
-     * @return User
-     */
-    public function getOwner()
-    {
-        return $this->owner;
-    }
-
-    /**
-     * @param User $owner
-     *
-     * @return Repository
-     */
-    public function setOwner(User $owner = null)
-    {
-        $this->owner = $owner;
-
-        return $this;
-    }
-
-    public function isDeveloper(User $user)
-    {
-        return $this->getDevelopers()->contains($user);
-    }
-
-    /**
-     * @return ArrayCollection
+     * @return ArrayCollection 
      */
     public function getDevelopers()
     {
         return $this->developers;
     }
 
-    public function isViewer(User $user)
-    {
-        return $this->getViewers()->contains($user);
-    }
-
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection 
      */
     public function getViewers()
     {

@@ -27,7 +27,7 @@ class RepositoryController extends Controller
         return $this->render(
             'JmoatiGitoliteFrontBundle:Repository:index.html.twig',
             array(
-                'pagination' => $pagination,
+                 'pagination' => $pagination,
             )
         );
     }
@@ -35,13 +35,13 @@ class RepositoryController extends Controller
     public function viewAction(Repository $repository)
     {
         $gitter = new Client();
-        $repo   = $gitter->getRepository('/Users/jmoati/Sites/gitoliteadmin3');
+        $repo   = $gitter->getRepository('/Users/jmoati/Sites/gitoliteadmin');
 
         return $this->render(
             'JmoatiGitoliteFrontBundle:Repository:view.html.twig',
             array(
-                'repository' => $repository,
-                'repo'       => $repo,
+                 'repository' => $repository,
+                 'repo'       => $repo,
 
             )
         );
@@ -64,27 +64,33 @@ class RepositoryController extends Controller
         return $this->render(
             'JmoatiGitoliteFrontBundle:Repository:new.html.twig',
             array(
-                'form' => $form->createView(),
+                 'form' => $form->createView(),
             )
         );
     }
 
     public function editAction(Repository $repository)
     {
-        $form = $this->createForm(new RepositoryType(), $repository);
+        $form_name = $this->createForm(
+            new RepositoryType(), $repository, array(
+                                                    'privacy' => false,
+                                                    'details' => false,
+                                               )
+        );
 
-        if ($this->processForm($form)) {
-            return $this
-                ->flush()
-                ->dispatch('jmoati_gitolite.should_be_compute')
-                ->redirect(array('jmoati_gitolite_front_repository_index'));
-        }
+        $form_details = $this->createForm(
+            new RepositoryType(), $repository, array(
+                                                    'privacy' => false,
+                                                    'name'    => false,
+                                               )
+        );
 
         return $this->render(
-            'JmoatiGitoliteFrontBundle:Repository:edit.html.twig',
+            'JmoatiGitoliteFrontBundle:Repository:edit_index.html.twig',
             array(
-                'repository' => $repository,
-                'form'       => $form->createView(),
+                 'repository'   => $repository,
+                 'form_name'    => $form_name->createView(),
+                 'form_details' => $form_details->createView(),
             )
         );
     }
@@ -95,8 +101,8 @@ class RepositoryController extends Controller
             return $this->render(
                 "JmoatiGitoliteFrontBundle:Repository:delete.html.twig",
                 array(
-                    'repository' => $repository,
-                    'form'       => $this->createDeleteForm()->createView(),
+                     'repository' => $repository,
+                     'form'       => $this->createDeleteForm()->createView(),
                 )
             );
         } else {
@@ -125,7 +131,7 @@ class RepositoryController extends Controller
         return $this->render(
             'JmoatiGitoliteFrontBundle:Repository:newKey.html.twig',
             array(
-                'form' => $form->createView(),
+                 'form' => $form->createView(),
             )
         );
 

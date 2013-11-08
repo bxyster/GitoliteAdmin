@@ -14,27 +14,38 @@ class RepositoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name', 'text')
-            ->add('description')
-            ->add(
-                'public',
-                'choice',
-                array(
-                    'label'   => 'Privacy',
-                    'choices' => array(
-                        1 => 'public',
-                        0 => 'private',
+        if ($options['name']) {
+            $builder
+                ->add('name', 'text');
+
+        }
+
+        if ($options['privacy']) {
+            $builder
+                ->add(
+                    'public',
+                    'choice',
+                    array(
+                         'label'   => 'Privacy',
+                         'choices' => array(
+                             1 => 'public',
+                             0 => 'private',
+                         )
                     )
-                )
-            )
-            ->add(
-                'website',
-                'url',
-                array(
-                    'required' => false,
-                )
-            );
+                );
+        }
+
+        if ($options['details']) {
+            $builder
+                ->add('description')
+                ->add(
+                    'website',
+                    'url',
+                    array(
+                         'required' => false,
+                    )
+                );
+        }
     }
 
     /**
@@ -44,7 +55,10 @@ class RepositoryType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'Jmoati\Gitolite\CoreBundle\Entity\Repository'
+                 'data_class' => 'Jmoati\Gitolite\CoreBundle\Entity\Repository',
+                 'name'       => true,
+                 'details'    => true,
+                 'privacy'    => true,
             )
         );
     }

@@ -1,0 +1,57 @@
+{% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
+
+
+{% block container_content %}
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+                <a href="">Options</a>
+            </li>
+            <li>
+                <a href="">Developpers</a>
+            </li>
+            <li>
+                <a href="">Viewers</a>
+            </li>
+            <li>
+                <a href="">Deploy Keys</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Name</div>
+            <div class="panel-body">
+                {{ form_start(form_name, { 'attr': {'class': 'form-inline' }}) }}
+                {{ form_widget(form_name.name) }}
+                <input class="btn btn-default" type="submit"/>
+                {{ form_end(form_name) }}
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Details</div>
+            <div class="panel-body">
+                {{ form_start(form_details) }}
+                {{ form_rest(form_details) }}
+                <input class="btn btn-default" type="submit"/>
+                {{ form_end(form_details) }}
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">Danger zone</div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p>Rendre le repository privé <a href="" class="btn btn-danger pull-right">
+                            Rendre privé
+                        </a>
+                    </p>
+                </li>
+                <li class="list-group-item">Effacer le repository <a href="" class="btn btn-danger pull-right">
+                        Effacer
+                    </a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

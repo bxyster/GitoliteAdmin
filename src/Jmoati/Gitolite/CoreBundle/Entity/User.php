@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as FosUser;
 use Gedmo\Mapping\Annotation;
+use Jmoati\Gitolite\CoreBundle\Entity\Key;
 use Jmoati\HelperBundle\Traits\Timestampable;
 
 /**
@@ -41,8 +42,6 @@ class User extends FosUser
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->keys = new ArrayCollection();
     }
 
@@ -52,6 +51,26 @@ class User extends FosUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     *
+     * @return User
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -83,25 +102,4 @@ class User extends FosUser
     {
         return $this->keys;
     }
-
-    /**
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * @param string $slug
-     *
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
 }

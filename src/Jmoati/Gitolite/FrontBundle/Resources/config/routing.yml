@@ -2,38 +2,10 @@ jmoati_gitolite_front_homepage:
     pattern:  /
     defaults: { _controller: JmoatiGitoliteFrontBundle:Index:index }
 
-jmoati_gitolite_front_repository_index:
-    pattern:  /repositories/{filter}
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Repository:index, filter: all }
+jmoati_gitolite_front_key:
+    resource: "@JmoatiGitoliteFrontBundle/Resources/config/routing/key.yml"
+    prefix:   /
 
-jmoati_gitolite_front_repository_new:
-    pattern:  /repository/new
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Repository:new }
-
-jmoati_gitolite_front_repository_view:
-    pattern:  /repository/{repository}/view
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Repository:view }
-
-jmoati_gitolite_front_repository_edit:
-    pattern:  /repository/{repository}/edit
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Repository:edit }
-
-jmoati_gitolite_front_repository_delete:
-    pattern:  /repository/{repository}/delete
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Repository:delete }
-
-jmoati_gitolite_front_repository_new_key:
-    pattern:  /repository/{repository}/new_key
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Repository:newKey }
-
-jmoati_gitolite_front_key_index:
-    pattern:  /keys
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Key:index }
-
-jmoati_gitolite_front_key_new:
-    pattern:  /key/new
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Key:new }
-
-jmoati_gitolite_front_key_delete:
-    pattern:  /key/{key}/delete
-    defaults: { _controller: JmoatiGitoliteFrontBundle:Key:delete }
+jmoati_gitolite_front_repository:
+    resource: "@JmoatiGitoliteFrontBundle/Resources/config/routing/repository.yml"
+    prefix:   /
