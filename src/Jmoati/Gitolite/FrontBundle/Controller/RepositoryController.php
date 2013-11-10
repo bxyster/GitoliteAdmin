@@ -71,23 +71,10 @@ class RepositoryController extends Controller
 
     public function editAction(Repository $repository)
     {
-        $form_name = $this->createForm(
-            new RepositoryType(), $repository, array(
-                                                    'privacy' => false,
-                                                    'details' => false,
-                                               )
-        );
+        $form_name = $this->createForm(new RepositoryType(), $repository, array('privacy' => false,'details' => false));
+        $form_details = $this->createForm(new RepositoryType(), $repository, array('privacy' => false, 'name'    => false));
 
-        $form_details = $this->createForm(
-            new RepositoryType(), $repository, array(
-                                                    'privacy' => false,
-                                                    'name'    => false,
-                                               )
-        );
-
-        return $this->render(
-            'JmoatiGitoliteFrontBundle:Repository:edit_index.html.twig',
-            array(
+        return $this->render('JmoatiGitoliteFrontBundle:Repository:edit_index.html.twig', array(
                  'repository'   => $repository,
                  'form_name'    => $form_name->createView(),
                  'form_details' => $form_details->createView(),

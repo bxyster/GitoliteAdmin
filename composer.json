@@ -23,12 +23,12 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "stof/doctrine-extensions-bundle": "1.1.*",
         "jmoati/helper-bundle": "0.0.*",
-        "jmoati/twitter-bootstrap-bundle": "0.0.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "knplabs/knp-paginator-bundle": "2.3.*",
         "klaussilveira/gitter": "0.2.*",
         "mopa/bootstrap-bundle": "v3.0.0-beta2",
-        "twbs/bootstrap": "v3.0.0"
+        "twbs/bootstrap": "v3.0.0",
+        "knplabs/knp-menu-bundle": "v1.1.2"
     },
     "require-dev": {
         "jmoati/generator-bundle": "0.0.*"
@@ -38,6 +38,7 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
@@ -45,6 +46,7 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]

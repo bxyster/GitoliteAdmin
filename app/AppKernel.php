@@ -1,6 +1,5 @@
 <?php
 
-use Maxime\UserBundle\MaximeUserBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -20,12 +19,14 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             // Extra
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             // Extra Jmoati
             new Jmoati\HelperBundle\JmoatiHelperBundle(),
-            new Jmoati\TwitterBootstrapBundle\JmoatiTwitterBootstrapBundle(),
+//            new Jmoati\TwitterBootstrapBundle\JmoatiTwitterBootstrapBundle(),
             // Application
             new Jmoati\Gitolite\CoreBundle\JmoatiGitoliteCoreBundle(),
             new Jmoati\Gitolite\ConsoleBundle\JmoatiGitoliteConsoleBundle(),

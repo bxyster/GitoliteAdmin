@@ -1,7 +1,6 @@
 {% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
-{% form_theme form 'JmoatiTwitterBootstrapBundle::form_theme.html.twig' %}
 
-{% block container_content %}
+{% block content %}
     <form action="" method="post" {{ form_enctype(form) }}>
         <legend>{% trans %}repository.create_key.title{% endtrans %}</legend>
 

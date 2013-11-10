@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0c9b052a0588562a707ed1aeb88e7afe",
+    "hash": "f0576095d36de984aef3bd90a2f37b0b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -615,12 +615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "0cb03029c7c1c833a11c7bebf30125276f0aa5b9"
+                "reference": "e543600e49216765315610b6281349ee86dfe87e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/0cb03029c7c1c833a11c7bebf30125276f0aa5b9",
-                "reference": "0cb03029c7c1c833a11c7bebf30125276f0aa5b9",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e543600e49216765315610b6281349ee86dfe87e",
+                "reference": "e543600e49216765315610b6281349ee86dfe87e",
                 "shasum": ""
             },
             "require": {
@@ -675,20 +675,20 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-10-28 10:50:07"
+            "time": "2013-11-07 03:54:10"
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.3.7",
+            "version": "v2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "0aa660ffea298b630b8ded7bd2a7eae0d8619fdb"
+                "reference": "d2bef940268e4dc5f0f050e80458169a7267813a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/0aa660ffea298b630b8ded7bd2a7eae0d8619fdb",
-                "reference": "0aa660ffea298b630b8ded7bd2a7eae0d8619fdb",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/d2bef940268e4dc5f0f050e80458169a7267813a",
+                "reference": "d2bef940268e4dc5f0f050e80458169a7267813a",
                 "shasum": ""
             },
             "require": {
@@ -755,7 +755,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-08-18 07:18:44"
+            "time": "2013-11-09 21:23:13"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -899,41 +899,6 @@
             "time": "2013-11-01 14:21:41"
         },
         {
-            "name": "jmoati/twitter-bootstrap-bundle",
-            "version": "0.0.1",
-            "target-dir": "Jmoati/TwitterBootstrapBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Jmoati/TwitterBootstrapBundle.git",
-                "reference": "7af317b02e79a970856ddf515b61218e7a794af7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Jmoati/TwitterBootstrapBundle/zipball/7af317b02e79a970856ddf515b61218e7a794af7",
-                "reference": "7af317b02e79a970856ddf515b61218e7a794af7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/symfony": "2.3.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Jmoati\\TwitterBootstrapBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Jacques Moati",
-                    "email": "jacques@moati.net"
-                }
-            ],
-            "description": "Simple Twitter Bootstrap template",
-            "time": "2013-10-31 19:00:42"
-        },
-        {
             "name": "klaussilveira/gitter",
             "version": "0.2.0",
             "source": {
@@ -1041,6 +1006,119 @@
                 "paginator"
             ],
             "time": "2013-03-14 07:31:46"
+        },
+        {
+            "name": "knplabs/knp-menu",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMenu.git",
+                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/f8e867268f63f561c1adadd6cbb5d8524f921873",
+                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "pimple/pimple": "*",
+                "silex/silex": "1.0.*",
+                "twig/twig": ">=1.2,<2.0-dev"
+            },
+            "suggest": {
+                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
+                "silex/silex": "for the integration with your silex application",
+                "twig/twig": "for the TwigRenderer and the integration with your templates"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "KnpLabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
+                }
+            ],
+            "description": "An object oriented menu library",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "menu",
+                "tree"
+            ],
+            "time": "2012-06-10 16:20:40"
+        },
+        {
+            "name": "knplabs/knp-menu-bundle",
+            "version": "v1.1.2",
+            "target-dir": "Knp/Bundle/MenuBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
+                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/2fecac02614e5a006f674dd5dd754eeaeca060b9",
+                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-menu": "~1.1",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\MenuBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Knplabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenuBundle/contributors"
+                }
+            ],
+            "description": "This bundle provides an integration of the KnpMenu library",
+            "keywords": [
+                "menu"
+            ],
+            "time": "2013-05-25 10:20:03"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -2107,17 +2185,17 @@
     "packages-dev": [
         {
             "name": "jmoati/generator-bundle",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "target-dir": "Jmoati/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jmoati/GeneratorBundle.git",
-                "reference": "af3e0b2081323989e557545e6f6dec78b0534c66"
+                "reference": "57eb3b438f7b6fcacb1b52646eaede3a74541c7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jmoati/GeneratorBundle/zipball/af3e0b2081323989e557545e6f6dec78b0534c66",
-                "reference": "af3e0b2081323989e557545e6f6dec78b0534c66",
+                "url": "https://api.github.com/repos/Jmoati/GeneratorBundle/zipball/57eb3b438f7b6fcacb1b52646eaede3a74541c7a",
+                "reference": "57eb3b438f7b6fcacb1b52646eaede3a74541c7a",
                 "shasum": ""
             },
             "require": {
@@ -2141,7 +2219,7 @@
                 }
             ],
             "description": "Simple source generator for Symfony2",
-            "time": "2013-11-05 17:56:21"
+            "time": "2013-11-08 06:28:23"
         }
     ],
     "aliases": [

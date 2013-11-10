@@ -1,7 +1,6 @@
 {% extends 'JmoatiGitoliteFrontBundle::base.html.twig' %}
-{% form_theme form 'JmoatiTwitterBootstrapBundle::form_theme.html.twig' %}
 
-{% block container_content %}
+{% block content %}
     <form action="{{ path('jmoati_gitolite_front_key_delete', {key: key.id}) }}"
           method="post" {{ form_enctype(form) }}>
         <legend>{% trans %}key.delete.title{% endtrans %}</legend>

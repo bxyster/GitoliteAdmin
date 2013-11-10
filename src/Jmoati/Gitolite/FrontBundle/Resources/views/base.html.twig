@@ -1,31 +1,65 @@
-{% extends 'JmoatiTwitterBootstrapBundle::base.html.twig' %}
+{% extends 'MopaBootstrapBundle::base_initializr.html.twig' %}
 
 {% block title %}Gitolite Manager{% endblock %}
-{% block brand_title %}Gitolite Manager{% endblock %}
-{% block brand_url %}{{ path('jmoati_gitolite_front_homepage') }}{% endblock %}
 
-{% block menu_item %}
-    {% if app.user %}
-        <li><a href="{{ path('jmoati_gitolite_front_repository_new') }}">{% trans %}Create
-                Repository{% endtrans %}</a></li>
-        <li><a href="{{ path('jmoati_gitolite_front_key_new') }}">{% trans %}Create Key{% endtrans %}</a></li>
-    {% endif %}
-{% endblock %}
+{% block content %}
+{% endblock content %}
 
-{% block right_menu_item %}
-    {% if app.user %}
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ app.user }} <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="{{ path('jmoati_gitolite_front_repository_index') }}">{% trans %}
-                        Repositories{% endtrans %}</a></li>
-                <li><a href="{{ path('jmoati_gitolite_front_key_index') }}">{% trans %}Keys{% endtrans %}</a></li>
-                <li class="divider"></li>
-                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('jmoati_gitolite_front_homepage') }}">Gitolite Manager</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                {% if app.user %}
+                    <li><a href="{{ path('jmoati_gitolite_front_repository_new') }}">{% trans %}Create
+                            Repository{% endtrans %}</a></li>
+                    <li><a href="{{ path('jmoati_gitolite_front_key_new') }}">{% trans %}Create Key{% endtrans %}</a>
+                    </li>
+                {% endif %}
             </ul>
-        </li>
-    {% else %}
-        <li><a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a></li>
-        <li><a href="{{ path('fos_user_security_login') }}">{% trans %}Login{% endtrans %}</a></li>
-    {% endif %}
-{% endblock %}
+            {#
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            #}
+            <ul class="nav navbar-nav navbar-right">
+                {% if app.user %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ app.user }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('jmoati_gitolite_front_repository_index') }}">{% trans %}
+                                    Repositories{% endtrans %}</a></li>
+                            <li>
+                                <a href="{{ path('jmoati_gitolite_front_key_index') }}">{% trans %}Keys{% endtrans %}</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a>
+                    </li>
+                    <li><a href="{{ path('fos_user_security_login') }}">{% trans %}Login{% endtrans %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        </nav>
+{% endblock navbar %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock footer %}
